@@ -18,11 +18,7 @@ app.use(
 )
 app.use(cookieParser())
 //Routes
-app.get('/', (req: Request, res: Response) => {
-  throw new Error('This is an error')
-  res.send('Hello, world!')
-  return
-})
+app.use('/auth', authRoutes)
 //Error handler
 
 app.use(errorHandler)

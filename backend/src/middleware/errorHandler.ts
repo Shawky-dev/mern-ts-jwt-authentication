@@ -1,12 +1,8 @@
-import e, {
-  Request,
-  Response,
-  NextFunction,
-  ErrorRequestHandler,
-} from 'express'
+import { INTERNAL_SERVER_ERROR } from '../constants/http'
+import { ErrorRequestHandler } from 'express'
 
 export const errorHandler: ErrorRequestHandler = (err, req, res, next) => {
   console.log(`PATH:${req.path}`, err)
-  res.status(500).json({ message: 'Internal Server Error' })
+  res.status(INTERNAL_SERVER_ERROR).json({ message: 'Internal Server Error' })
   return
 }
